@@ -1,3 +1,9 @@
+/*
+CREATE TABLE IF NOT EXISTS table (
+	
+);
+*/
+
 CREATE TABLE IF NOT EXISTS Publisher (
 	fname VARCHAR(15) NOT NULL,
 	lname VARCHAR(15) NOT NULL,
@@ -28,3 +34,31 @@ CREATE TABLE IF NOT EXISTS Book (
 	pub_percent NUMERIC(4, 2) NOT NULL,
 	FOREIGN KEY (publisher_email) REFERENCES Publisher (email)
 );
+
+CREATE TABLE IF NOT EXISTS genre (
+	isbn CHAR(17),
+	genre VARCHAR(15),
+	PRIMARY KEY (isbn, genre),
+	FOREIGN KEY (isbn) REFERENCES Book (isbn)
+);
+
+CREATE TABLE IF NOT EXISTS sells (
+	isbn CHAR(17),
+	date Date NOT NULL,
+	quantity NUMERIC(2, 0) NOT NULL,
+	PRIMARY KEY (isbn),
+	FOREIGN KEY (isbn) REFERENCES Book (isbn)
+);
+
+CREATE TABLE IF NOT EXISTS wrote (
+	isbn CHAR(17),
+	fname VARCHAR(15),
+	lname VARCHAR(15),
+	PRIMARY KEY (isbn, fname, lname),
+	FOREIGN KEY (isbn) REFERENCES Book (isbn),
+	FOREIGN KEY (fname, lname) REFERENCES Author (fname, lname)
+);
+
+
+
+
