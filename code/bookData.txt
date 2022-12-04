@@ -1,0 +1,100 @@
+12-345-678-11	dtrunby0@sogou.com	Six of a Kind	719	11	76.98	8.58
+12-345-678-12	iwythill1@netscape.com	Blue Like Jazz	80	15	70.56	19.73
+12-345-678-13	pcharkham2@amazonaws.com	Endgame	311	10	64.2	8.85
+12-345-678-14	rolagen3@amazon.de	Ten Tall Men	191	18	53.51	2.16
+12-345-678-15	edrewet4@slashdot.org	Beyond the Border	433	10	64.21	2.87
+12-345-678-16	bcorbould5@imgur.com	Citizen Koch	710	11	32.42	17.52
+12-345-678-17	aangeli6@msu.edu	Great Escape, The	161	17	90.73	2.18
+12-345-678-18	cslavin7@deliciousdays.com	Fear	922	16	78.54	18.43
+12-345-678-19	warington8@last.fm	Swing Time	895	17	42.84	1.59
+12-345-678-20	bmart9@mysql.com	Katatsumori	272	16	52.62	17.37
+12-345-678-21	nbourkea@wordpress.com	Maxed Out: Hard Times, Easy Credit an...	780	10	37.35	19.33
+12-345-678-22	aweichb@wikimedia.org	My Neighbors the Yamadas (Hôhokekyo t...	946	14	49.83	18.37
+12-345-678-23	npetricekc@mlb.com	Bodyguard, The	200	17	34.44	14.14
+12-345-678-24	bmibourned@skype.com	Christmas Carol, A	402	13	29.37	5.23
+12-345-678-25	achezellee@amazon.co.uk	Drop, The	795	14	85.79	7.1
+12-345-678-26	rwillavoysf@omniture.com	Sympathy for Mr. Vengeance (Boksuneun...	461	12	71.32	12.73
+12-345-678-27	slymerg@wordpress.com	Walk Hard: The Dewey Cox Story	147	19	19.32	12.67
+12-345-678-28	fcubbinih@washington.edu	Mo' Money	692	11	90.9	3.4
+12-345-678-29	bgotheri@phpbb.com	Rendezvous	808	11	78.49	13.42
+12-345-678-30	kblasdalej@yellowpages.com	First Men in the Moon	252	12	99.32	6.17
+12-345-678-31	jnewburyk@nifty.com	Jeff, Who Lives at Home	269	11	83.29	16.9
+12-345-678-32	dcovenyl@admin.ch	Homeward Bound: The Incredible Journey	867	12	84.51	19.46
+12-345-678-33	wduckerm@freewebs.com	Best Man, The (Testimone dello sposo,...	651	14	61.27	7.61
+12-345-678-34	cskinnn@simplemachines.org	Tiny Toon Adventures: How I Spent My ...	588	10	9.39	6.27
+12-345-678-35	mphilo@diigo.com	Dangerous Minds	764	18	36.72	19.6
+12-345-678-36	sguenyp@hao123.com	One Step Ahead of My Shadow	177	11	13.27	13.85
+12-345-678-37	cananq@umn.edu	Body Parts	58	19	82.45	4.78
+12-345-678-38	lwignallr@reddit.com	Dominion Tank Police (Dominion)	180	10	86.07	6.63
+12-345-678-39	islanes@pinterest.com	Gamera vs. Guiron	289	14	53.88	12.88
+12-345-678-40	acapest@uiuc.edu	Sarah Silverman:  We Are Miracles	40	14	59.06	16.64
+12-345-678-41	nedgsonu@businessweek.com	James and the Giant Peach	37	11	31.94	8.24
+12-345-678-42	banshellv@craigslist.org	Central Park	730	10	7.59	6.19
+12-345-678-43	nhawkwoodw@nationalgeographic.com	World Moves On, The	237	17	9.62	10.63
+12-345-678-44	aosgarbyx@bravesites.com	Day & Night	909	15	38.95	14.09
+12-345-678-45	cscurreyy@people.com.cn	Show Boat	948	17	20.78	13.69
+12-345-678-46	wcastielloz@springer.com	Last Days	264	15	19.31	9.3
+12-345-678-47	soneill10@ucla.edu	Steal Big, Steal Little	152	18	98.45	10.86
+12-345-678-48	csporle11@comsenz.com	Sovereign's Company	731	13	70.62	7.89
+12-345-678-49	tprobart12@admin.ch	Painted Veil, The	626	19	70.34	2.88
+12-345-678-50	msaylor13@rakuten.co.jp	Point and Shoot	242	10	15.07	2.43
+12-345-678-51	ohazeley14@wordpress.org	No Flesh Shall Be Spared	744	18	65.9	14.27
+12-345-678-52	smallen15@tinyurl.com	Woman in Red, The	544	12	78.42	5.32
+12-345-678-53	hker16@joomla.org	Taken	86	16	60.99	4.78
+12-345-678-54	haltoft17@bing.com	Shall We Dance? (Shall We Dansu?)	438	17	6.37	16.89
+12-345-678-55	bgorthy18@scientificamerican.com	Feast of July	138	14	85.07	15.95
+12-345-678-56	adaout19@arstechnica.com	Fandry	186	10	72.35	15.19
+12-345-678-57	zolrenshaw1a@unicef.org	Rising Sun	267	13	41.4	11.96
+12-345-678-58	lperutto1b@trellian.com	Bartleby	181	12	82.44	14.99
+12-345-678-59	iscutchings1c@hc360.com	Ikigami	651	14	87.12	5.23
+12-345-678-60	dlibrey1d@oracle.com	Written on the Wind	246	13	67.32	10.7
+12-345-678-61	rlindholm1e@gnu.org	American Samurai (Ninja: American Sam...	60	13	24.92	18.47
+12-345-678-62	skeyte1f@cyberchimps.com	Operation Crossbow	386	16	96.74	6.7
+12-345-678-63	phurdiss1g@ed.gov	Insignificance	776	13	30.62	18.38
+12-345-678-64	msetter1h@usa.gov	In This Our Life	808	12	65.25	15.38
+12-345-678-65	eriggoll1i@msn.com	Softening of the Egg, The (Ägget är l...	85	14	36.1	4.1
+12-345-678-66	emartygin1j@infoseek.co.jp	Pokemon: The Movie 2000	552	14	57.07	18.61
+12-345-678-67	amcparland1k@hugedomains.com	Three Wise Fools	510	11	84.31	7.4
+12-345-678-68	dmullaney1l@symantec.com	They Died with Their Boots On	416	16	35.38	12.37
+12-345-678-69	mdufaire1m@psu.edu	Russkies	85	16	24.37	0.18
+12-345-678-70	gadne1n@histats.com	December 7th	674	19	33.23	9
+12-345-678-71	mreinbech1o@sohu.com	Road to Hong Kong, The	944	19	11.93	4.44
+12-345-678-72	imablestone1p@usda.gov	Flying Home	738	16	28.19	17.61
+12-345-678-73	fbourtoumieux1q@tiny.cc	'Hellboy': The Seeds of Creation	136	11	46.16	19.13
+12-345-678-74	zstanyan1r@51.la	Snake and Mongoose	401	18	95.24	3.58
+12-345-678-75	bcrinage1s@facebook.com	Along the Sungari River (Song hua jia...	207	12	25.19	3.86
+12-345-678-76	clamport1t@arizona.edu	Loves of Pharaoh, The (Das Weib des P...	761	17	15.68	7.65
+12-345-678-77	pdequincey1u@indiegogo.com	Cousins	536	10	76.09	15.45
+12-345-678-78	ktanman1v@shareasale.com	Third Star	331	17	32	10.46
+12-345-678-79	kmasham1w@zdnet.com	Minority Report	549	14	22.23	13.04
+12-345-678-80	wgever1x@amazon.co.uk	Perfect Family, The	469	16	17.45	17.97
+12-345-678-81	dbrigman1y@domainmarket.com	Encounters at the End of the World	772	14	18.05	4.75
+12-345-678-82	ccockland1z@fc2.com	India's Daughter	525	15	41.48	17.53
+12-345-678-83	wzanardii20@sun.com	Rooster's Breakfast (Petelinji zajtrk)	896	11	12.14	1.89
+12-345-678-84	cfranzke21@scribd.com	Seeking Asian Female	578	10	94.23	1.58
+12-345-678-85	eodowling22@multiply.com	Fifty/Fifty	582	15	80.86	14.37
+12-345-678-86	reccleshall23@dot.gov	Three Colors: Blue (Trois couleurs: B...	435	13	79.05	3.85
+12-345-678-87	bwebermann24@npr.org	Age of Uprising: The Legend of Michae...	541	18	47.88	11.37
+12-345-678-88	ishire25@wikipedia.org	Follow Me Quietly	33	13	42.7	1.4
+12-345-678-89	esapir26@aol.com	Skipped Parts	178	17	95.01	9.96
+12-345-678-90	shandslip27@umn.edu	Dr. Crippen	481	12	24.97	5.56
+12-345-678-91	ctaudevin28@dot.gov	Lightspeed	710	14	8.75	3.53
+12-345-678-92	cyockley29@census.gov	Never Say Never Again	770	18	63.66	6.68
+12-345-678-93	mabbate2a@hubpages.com	Story of Vernon and Irene Castle, The	647	13	47.87	13.33
+12-345-678-94	wquillinane2b@moonfruit.com	Before the Rain (Pred dozhdot)	701	10	48.41	13.99
+12-345-678-95	wsnellman2c@mysql.com	Anna Nicole (Anna Nicole Smith Story,...	248	11	55.59	14.05
+12-345-678-96	sbudcock2d@techcrunch.com	The Boy Who Cried Werewolf	405	18	5.17	12.42
+12-345-678-97	twyre2e@cbsnews.com	Polite People (Kurteist fólk)	420	10	96.96	14.06
+12-345-678-98	tcolls2f@goo.gl	Scott of the Antarctic	874	14	79.41	17.03
+12-345-678-99	jpaulusch2g@biblegateway.com	Fair Game	487	18	63.96	8.61
+12-345-671-11	wrijkeseis2h@macromedia.com	Last Minute, The	599	16	7.43	19.4
+12-345-671-12	adefilippis2i@infoseek.co.jp	Campus Radio	537	15	50.2	5.53
+12-345-671-13	kroach2j@msu.edu	Beginners	742	16	20.57	16.04
+12-345-671-14	lpenhall2k@dailymotion.com	Barchester Chronicles, The	155	16	50.89	5.89
+12-345-671-15	gtunnicliff2l@hao123.com	Deep End of the Ocean, The	690	12	85.99	18.87
+12-345-671-16	xkeighley2m@moonfruit.com	Alien Trespass	342	13	25.34	10.59
+12-345-671-17	iritchard2n@163.com	With a Friend Like Harry... (Harry, u...	295	12	79.95	10.13
+12-345-671-18	pniave2o@addthis.com	America: Imagine the World Without Her	53	13	46.21	17.17
+12-345-671-19	gseabrocke2p@bbb.org	Paisan (Paisà)	868	17	28.99	9.74
+12-345-671-20	blaimable2q@unicef.org	Once in a Lifetime	208	15	5.27	1.03
+12-345-671-21	dsighart2r@about.com	Patton Oswalt: Finest Hour	274	19	89.79	5.72

@@ -2,6 +2,8 @@ import sqlite3
 
 conn = sqlite3.connect("bookstore.db")
 c = conn.cursor()
+c.execute('''DROP TABLE Book''')
+conn.commit()
 
 c.execute('''CREATE TABLE IF NOT EXISTS Publisher (
     email VARCHAR(20) PRIMARY KEY,
@@ -30,8 +32,8 @@ c.execute('''CREATE TABLE IF NOT EXISTS Book (
 	title VARCHAR(15) NOT NULL,
 	num_pages NUMERIC(4, 0) NOT NULL,
 	quantity NUMERIC(10, 0) NOT NULL,
+	sale_price NUMERIC(5, 2) NOT NULL,
 	pub_percent NUMERIC(4, 2) NOT NULL,
-    sale_price NUMERIC(5, 2) NOT NULL,
 	FOREIGN KEY (publisher_email) REFERENCES Publisher (email))''')
 conn.commit()
 
