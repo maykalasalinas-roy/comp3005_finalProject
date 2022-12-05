@@ -3,6 +3,12 @@ import sqlite3
 conn = sqlite3.connect("bookstore.db")
 c = conn.cursor()
 c.execute('''DROP TABLE Book''')
+c.execute('''DROP TABLE genre''')
+c.execute('''DROP TABLE Publisher''')
+c.execute('''DROP TABLE phones''')
+c.execute('''DROP TABLE Author''')
+c.execute('''DROP TABLE wrote''')
+c.execute('''DROP TABLE registered_user''')
 conn.commit()
 
 c.execute('''CREATE TABLE IF NOT EXISTS Publisher (
@@ -29,7 +35,7 @@ conn.commit()
 c.execute('''CREATE TABLE IF NOT EXISTS Book (
 	isbn CHAR(17) PRIMARY KEY,
 	publisher_email VARCHAR(20) NOT NULL,
-	title VARCHAR(15) NOT NULL,
+	title VARCHAR(40) NOT NULL,
 	num_pages NUMERIC(4, 0) NOT NULL,
 	quantity NUMERIC(10, 0) NOT NULL,
 	sale_price NUMERIC(5, 2) NOT NULL,
