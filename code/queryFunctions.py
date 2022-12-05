@@ -33,7 +33,7 @@ def printBooks(books):
     for b in books:
         print(f"{b[0]}  {b[1]:40}  {b[2]:6}  {b[3]:10}")
 
-
+'''
 print("\nQuery using isbn:")
 bookByISBN("12-345-678-17")
 
@@ -47,7 +47,4 @@ print("\nQuery using publisher:")
 bookByPublisher("Fran", "Oglesbee")
 
 print("\nQuery using genre:")
-bookByGenre("Crime")
-
-c.close()
-conn.close()
+bookByGenre("Crime")'''
