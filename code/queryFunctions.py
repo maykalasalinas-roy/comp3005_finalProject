@@ -3,6 +3,7 @@ import sqlite3
 conn = sqlite3.connect("bookstore.db")
 c = conn.cursor()
 
+# Note: 1st search should show like isbn, title and once selected show pages, price, pub, authors, genres
 def bookByISBN(isbn):
     c.execute('''SELECT b.isbn, b.title, b.num_pages, b.sale_price, w.fname, w.lname FROM Book b, wrote w WHERE w.isbn = b.isbn AND b.isbn = ?''', (isbn,))
     r = c.fetchall()
