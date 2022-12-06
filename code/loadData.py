@@ -130,10 +130,10 @@ def loadUser():
         l = line.split("\t")
         lines[count-1] = l 
 
-    c.executemany('''INSERT INTO registered_user VALUES(?, ?, ?, ?, ?);''', lines)
+    c.executemany('''INSERT INTO Registered_user VALUES(?, ?, ?, ?, ?);''', lines)
     conn.commit()
 
-    c.execute("SELECT * FROM registered_user")
+    c.execute("SELECT * FROM Registered_user")
     for n in c.fetchall():
         print(f"{n[0]}\t{n[1]}\t{n[2]}\t{n[3]}\t{n[4]}")
 

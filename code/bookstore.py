@@ -4,15 +4,21 @@ import queryFunctions as qf
 
 qf.c.close()
 qf.conn.close()'''
+def searchView():
+    opt = 0
+    opt = int(input("\n----Search View---- \n1. ISBN \n2. Title \n3. Author \n4. Publisher \n5. Genre \nEnter the listed number to select an option: "))
 
 def ownerView():
-    print("\n----Owner View---- \n1. Add a new book \n2. Delete a book \n3. Sales Report \n4. Expenses Report \n5. Back to main menu \nEnter the listed number to select an option: ")
+    opt = 0
+    opt = int(input("\n----Owner View---- \n1. Add a new book \n2. Delete a book \n3. Sales Report \n4. Expenses Report \n5. Back to main menu \nEnter the listed number to select an option: "))
 
 def customerView():
-    print("\n----Customer View---- \n1. Login \n2. Register \n3. View Cart \n4. Search \n5. Back to main menu \nEnter the listed number to select an option: ")
+    opt = 0
+    opt = int(input("\n----Customer View---- \n1. Login \n2. Register \n3. View Cart \n4. Search \n5. Back to main menu \nEnter the listed number to select an option: "))
 
 def registeredUserView():
-    print("\n----Registered User View---- \n1. View Cart \n2. Search \n3. Checkout \n4. View order tracking \n5. Back to main menu \nEnter the listed number to select an option: ")
+    opt = 0
+    opt = int(input("\n----Registered User View---- \n1. View Cart \n2. Search \n3. Checkout \n4. View order tracking \n5. Back to main menu \nEnter the listed number to select an option: "))
 
 def main():
     view = 0

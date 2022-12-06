@@ -8,7 +8,7 @@ c.execute('''DROP TABLE Publisher''')
 c.execute('''DROP TABLE phones''')
 c.execute('''DROP TABLE Author''')
 c.execute('''DROP TABLE wrote''')
-c.execute('''DROP TABLE registered_user''')
+c.execute('''DROP TABLE Registered_user''')
 conn.commit()
 
 c.execute('''CREATE TABLE IF NOT EXISTS Publisher (
