@@ -1,11 +1,10 @@
 import sqlite3
 
 conn = sqlite3.connect("bookstore.db")
-
 c = conn.cursor()
 
 def loadBook():
-    file = open("bookData.txt", "r")
+    file = open("mockData/bookData.txt", "r")
     lines = file.readlines()
     file.close()
 
@@ -24,7 +23,7 @@ def loadBook():
         print(f"{n[0]}\t{n[1]}\t{n[2]}\t{n[3]}\t{n[4]}\t{n[5]}\t{n[6]}")
 
 def loadPublisher():
-    file = open("publisherData.txt", "r")
+    file = open("mockData/publisherData.txt", "r")
     lines = file.readlines()
     file.close()
 
@@ -43,7 +42,7 @@ def loadPublisher():
         print(f"{n[0]}\t{n[1]}\t{n[2]}\t{n[3]}\t{n[4]}")
 
 def loadGenre():
-    file = open("genreData.txt", "r")
+    file = open("mockData/genreData.txt", "r")
     lines = file.readlines()
     file.close()
 
@@ -62,7 +61,7 @@ def loadGenre():
         print(f"{n[0]}\t{n[1]}")
 
 def loadPhones():
-    file = open("phonesData.txt", "r")
+    file = open("mockData/phonesData.txt", "r")
     lines = file.readlines()
     file.close()
 
@@ -81,7 +80,7 @@ def loadPhones():
         print(f"{n[0]}\t{n[1]}")
 
 def loadAuthor():
-    file = open("authorData.txt", "r")
+    file = open("mockData/authorData.txt", "r")
     lines = file.readlines()
     file.close()
 
@@ -100,7 +99,7 @@ def loadAuthor():
         print(f"{n[0]}\t{n[1]}")
 
 def loadWrote():
-    file = open("wroteData.txt", "r")
+    file = open("mockData/wroteData.txt", "r")
     lines = file.readlines()
     file.close()
 
@@ -119,7 +118,7 @@ def loadWrote():
         print(f"{n[0]}\t{n[1]}\t{n[2]}")
 
 def loadUser():
-    file = open("userData.txt", "r")
+    file = open("mockData/userData.txt", "r")
     lines = file.readlines()
     file.close()
 

@@ -2,13 +2,17 @@ import sqlite3
 
 conn = sqlite3.connect("bookstore.db")
 c = conn.cursor()
-c.execute('''DROP TABLE Book''')
-c.execute('''DROP TABLE genre''')
 c.execute('''DROP TABLE Publisher''')
 c.execute('''DROP TABLE phones''')
 c.execute('''DROP TABLE Author''')
+c.execute('''DROP TABLE Book''')
+c.execute('''DROP TABLE genre''')
+c.execute('''DROP TABLE sells''')
 c.execute('''DROP TABLE wrote''')
 c.execute('''DROP TABLE Registered_user''')
+c.execute('''DROP TABLE book_order''')
+c.execute('''DROP TABLE contains''')
+c.execute('''DROP TABLE Total_sales''')
 conn.commit()
 
 c.execute('''CREATE TABLE IF NOT EXISTS Publisher (

@@ -71,7 +71,31 @@ def printBook(book, a, g):
     return text
 
 def findUser(email):
-    c.execute('''SELECT 1 FROM Registered_user WHERE email = ?''', (email,))
+    c.execute('''SELECT email, address, bank_info FROM Registered_user WHERE email = ?''', (email,))
+    r = c.fetchone()
+
+    if(r):
+        return r
+    else:
+        return 0
+
+def getGenres():
+    c.execute('''SELECT DISTINCT g.genre FROM genre g ORDER BY g.genre ASC''')
+    r = c.fetchall()
+
+    text = ""
+    for g in r:
+        text += f"{g[0]}\n"
+
+    return text
+
+def getTitle(isbn):
+    c.execute('''SELECT title FROM Book WHERE isbn = ?''', (isbn,))
+    r = c.fetchone()
+    return r[0]
+
+def getQuantity(isbn):
+    c.execute('''SELECT quantity FROM Book WHERE isbn = ?''', (isbn,))
     r = c.fetchone()
     return r[0]
 
@@ -95,4 +119,8 @@ viewBook("12-345-678-18")
 viewBook("12-345-678-75")
 viewBook("12-345-678-56")
 
-findUser("cpeartree0@wisc.edu")'''
+findUser("cpeartree0@wisc.edu")
+
+print(getGenres())
+
+print(getTitle("12-345-678-17"))'''

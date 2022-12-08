@@ -1,7 +1,9 @@
 import sys
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6 import uic
+
 import queryFunctions as qf
+import dmFunctions as dmf
 
 # I couldn't remember how to setup the initial window so I used this site: https://www.pythonguis.com/tutorials/pyqt6-first-steps-qt-designer/
 class MainWindow(QtWidgets.QMainWindow):
@@ -11,6 +13,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.cart = []
 
         self.ui = uic.loadUi('mainWindow.ui', self)
+
+        self.ui.userViewButt.toggled.connect(self.disableOwnerView)
+        self.ui.ownerViewButt.toggled.connect(self.disableUserView)
 
         self.ui.loginButt.clicked.connect(self.login)
         self.ui.registerButt.clicked.connect(self.register)
@@ -28,21 +33,67 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.checkoutButt.clicked.connect(self.checkout)
         self.ui.viewOrdersButt.clicked.connect(self.viewOrders)
 
+        self.disableOwnerView()
+        self.ui.checkoutButt.setEnabled(False)
+        self.ui.quantitySpin.setMaximum(0)
+        self.ui.quantitySpin.setMinimum(0)
+
         self.show()
 
+    def disableOwnerView(self):
+        self.ui.ownerViewButt.setChecked(False)
+
+        self.ui.ownerViewFrame.hide()
+        self.ui.ownerViewFrame.setEnabled(False)
+
+        self.ui.genresFrame.show()
+        self.showGenres()
+        self.ui.userViewFrame.show()
+        self.ui.userViewFrame.setEnabled(True)
+
+    def disableUserView(self):
+        self.ui.userViewButt.setChecked(False)
+
+        self.ui.ownerViewFrame.show()
+        self.ui.ownerViewFrame.setEnabled(True)
+
+        self.ui.genresFrame.hide()
+
+        self.ui.userViewFrame.hide()
+        self.ui.userViewFrame.setEnabled(False)
+
+    def showGenres(self):
+        self.ui.genresLbl.setText(qf.getGenres())
+
     def login(self):
-        if(qf.findUser(self.ui.emailLogin.text())):
-            self.userEmail = self.ui.emailLogin.text()
+        t = qf.findUser(self.ui.emailLogin.text())
+        if(t):
+            self.userEmail = t[0]
+            self.ui.addressCheckout.setText(t[1])
+            self.ui.bankCheckout.setText(t[2])
+
+            if(len(self.cart) > 0):
+                self.ui.checkoutButt.setEnabled(True)
+
             print("logged in")
         else:
             print("user does not exist")
 
     def register(self):
-        print("register")
+        e = self.ui.emailReg.text()
+        fn = self.ui.fnameReg.text()
+        ln = self.ui.lnameReg.text()
+        a = self.ui.addressReg.text()
+        b = self.ui.bankReg.text()
+
+        dmf.registerUser(e, fn, ln, a, b)
+        self.ui.emailLogin.setText(e)
+        self.login()
 
     def searchISBN(self):
         q = self.ui.inSearch.text()
         self.ui.qResults.setText(qf.bookByISBN(q))
+        print(self.userEmail)
 
     def searchTitle(self):
         q = self.ui.inSearch.text()
@@ -66,11 +117,24 @@ class MainWindow(QtWidgets.QMainWindow):
         q = self.ui.inISBN.text()
         self.ui.qResults.setText(qf.viewBook(q))
 
+        max = qf.getQuantity(q)
+        self.ui.quantitySpin.setMaximum(max)
+        self.ui.quantitySpin.setMinimum(1)
+
     def addToCart(self):
         b = self.ui.inISBN.text()
+        q = self.ui.quantitySpin.value()
+        self.cart.append((b, q))
 
-    def viewCart(self):
-        print("view cart")
+        if(self.userEmail != ""):
+            self.ui.checkoutButt.setEnabled(True)
+
+    def viewCart(self):        
+        text = "isbn | title | quantity\n"
+        for c in self.cart:
+            text += f"{c[0]} | {qf.getTitle(c[0])} | {c[1]}\n"
+
+        self.ui.qResults.setText(text)
 
     def checkout(self):
         print("checkout")
