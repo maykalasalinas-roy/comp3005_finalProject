@@ -16,7 +16,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Look Inna Book - Online Bookstore</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QRadioButton" name="userViewButt">
@@ -56,6 +56,11 @@
       <width>591</width>
       <height>561</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+     </font>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -153,6 +158,11 @@
       </item>
       <item row="1" column="1">
        <widget class="QLineEdit" name="fnameReg">
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+         </font>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -190,6 +200,11 @@
       </item>
       <item row="1" column="2">
        <widget class="QLineEdit" name="lnameReg">
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+         </font>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -249,6 +264,11 @@
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="1" column="3">
        <widget class="QPushButton" name="viewButt">
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+         </font>
+        </property>
         <property name="text">
          <string>View</string>
         </property>
@@ -278,27 +298,18 @@
         </property>
        </widget>
       </item>
-      <item row="5" column="2">
-       <widget class="QPushButton" name="viewCartButt">
-        <property name="text">
-         <string>View Cart</string>
-        </property>
-       </widget>
-      </item>
       <item row="4" column="2">
        <widget class="QLineEdit" name="addressCheckout">
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+         </font>
+        </property>
         <property name="text">
          <string/>
         </property>
         <property name="placeholderText">
          <string>address</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="3">
-       <widget class="QPushButton" name="viewOrdersButt">
-        <property name="text">
-         <string>View Orders</string>
         </property>
        </widget>
       </item>
@@ -327,7 +338,13 @@
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QLineEdit" name="inISBN"/>
+       <widget class="QLineEdit" name="inISBN">
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+         </font>
+        </property>
+       </widget>
       </item>
       <item row="1" column="1">
        <widget class="QPushButton" name="isbnButt">
@@ -355,6 +372,11 @@
       </item>
       <item row="0" column="2">
        <widget class="QLabel" name="label_4">
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+         </font>
+        </property>
         <property name="text">
          <string>Enter an ISBN below and click view</string>
         </property>
@@ -365,6 +387,11 @@
       </item>
       <item row="4" column="3">
        <widget class="QLineEdit" name="bankCheckout">
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+         </font>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -375,6 +402,11 @@
       </item>
       <item row="4" column="4">
        <widget class="QPushButton" name="checkoutButt">
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+         </font>
+        </property>
         <property name="text">
          <string>Checkout</string>
         </property>
@@ -397,16 +429,32 @@
       </item>
       <item row="2" column="4">
        <widget class="QPushButton" name="cartButt">
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+         </font>
+        </property>
         <property name="text">
          <string>Add to cart</string>
         </property>
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QSpinBox" name="quantitySpin"/>
+       <widget class="QSpinBox" name="quantitySpin">
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+         </font>
+        </property>
+       </widget>
       </item>
       <item row="2" column="3">
        <widget class="QLabel" name="label_7">
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+         </font>
+        </property>
         <property name="text">
          <string>Quantity</string>
         </property>
@@ -414,11 +462,37 @@
       </item>
       <item row="0" column="3">
        <widget class="QLabel" name="label_11">
+        <property name="font">
+         <font>
+          <family>Times New Roman</family>
+         </font>
+        </property>
         <property name="text">
          <string>After viewing, you can select quantity to add to cart</string>
         </property>
         <property name="wordWrap">
          <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="4">
+       <widget class="QPushButton" name="viewOrdersButt">
+        <property name="text">
+         <string>View Order</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="3">
+       <widget class="QLineEdit" name="orderNum">
+        <property name="placeholderText">
+         <string>order number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="4">
+       <widget class="QPushButton" name="viewCartButt">
+        <property name="text">
+         <string>View Cart</string>
         </property>
        </widget>
       </item>
@@ -456,6 +530,11 @@
       <width>591</width>
       <height>561</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+     </font>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -706,63 +785,10 @@
      </property>
     </widget>
    </widget>
-   <widget class="QFrame" name="genresFrame">
-    <property name="geometry">
-     <rect>
-      <x>610</x>
-      <y>140</y>
-      <width>181</width>
-      <height>426</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QLabel" name="label_6">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>158</width>
-       <height>18</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Times New Roman</family>
-       <pointsize>16</pointsize>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Genres:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="genresLbl">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>39</y>
-       <width>151</width>
-       <height>371</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-     </property>
-    </widget>
-   </widget>
    <zorder>ownerViewFrame</zorder>
    <zorder>userViewButt</zorder>
    <zorder>ownerViewButt</zorder>
    <zorder>userViewFrame</zorder>
-   <zorder>genresFrame</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

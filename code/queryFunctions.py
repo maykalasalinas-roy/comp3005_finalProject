@@ -99,6 +99,30 @@ def getQuantity(isbn):
     r = c.fetchone()
     return r[0]
 
+def getMaxOrderNum():
+    c.execute('''SELECT MAX(order_num) FROM book_order''')
+    r = c.fetchone()
+
+    if(r[0]):
+        return r[0]
+    else:
+        return 1000
+
+def viewOrder(orderNum):
+    print("orders")
+    c.execute('''SELECT tracking FROM book_order WHERE order_num = ?''', (orderNum,))
+    r = c.fetchone()
+
+    text = f"Order: {orderNum}, Tracking: {r[0]}\nisbn | quantity\n"
+
+    c.execute('''SELECT isbn, quantity FROM contains WHERE order_num = ?''', (orderNum,))
+    r = c.fetchall()
+
+    for b in r:
+        text += f"{b[0]} | {b[1]}\n"
+
+    return text
+
 '''
 print("\nQuery using isbn:")
 bookByISBN("12-345-678-17")
@@ -123,4 +147,6 @@ findUser("cpeartree0@wisc.edu")
 
 print(getGenres())
 
-print(getTitle("12-345-678-17"))'''
+print(getTitle("12-345-678-17"))
+
+viewOrder(1000)'''

@@ -68,7 +68,9 @@ CREATE TABLE IF NOT EXISTS book_order (
 	order_num NUMERIC(4,0) PRIMARY KEY,
     user_email VARCHAR(15),
     tracking VARCHAR(10), -- Going to be like "warehouse" or "in transit" so it's 9 to 10 characters
-    date Date NOT NULL
+    date Date NOT NULL,
+	address VARCHAR(30) NOT NULL,
+	bank_info VARCHAR(12) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS contains (

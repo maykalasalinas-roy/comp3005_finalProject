@@ -88,7 +88,9 @@ c.execute('''CREATE TABLE IF NOT EXISTS book_order (
 	order_num NUMERIC(4,0) PRIMARY KEY,
     user_email VARCHAR(15),
     tracking VARCHAR(10),
-    date Date NOT NULL)''')
+    date Date NOT NULL,
+	address VARCHAR(30) NOT NULL,
+	bank_info VARCHAR(12) NOT NULL)''')
 conn.commit()
 
 c.execute('''CREATE TABLE IF NOT EXISTS contains (
@@ -102,10 +104,18 @@ conn.commit()
 
 c.execute('''CREATE TABLE IF NOT EXISTS Total_sales (
 	isbn CHAR(17),
-	date Date NOT NULL,
+	month NUMERIC(2, 0) NOT NULL,
 	quantity NUMERIC(2, 0) NOT NULL,
 	PRIMARY KEY (isbn),
 	FOREIGN KEY (isbn) REFERENCES Book (isbn))''')
+conn.commit()
+
+
+c.execute('''CREATE TRIGGER IF NOT EXISTS reduce_stock 
+	AFTER INSERT ON contains
+	BEGIN
+		UPDATE Book SET quantity = quantity - NEW.quantity WHERE isbn = NEW.isbn;
+	END;''')
 conn.commit()
 
 c.close()

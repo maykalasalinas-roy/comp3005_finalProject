@@ -5,12 +5,14 @@ from PyQt6 import uic
 import queryFunctions as qf
 import dmFunctions as dmf
 
-# I couldn't remember how to setup the initial window so I used this site: https://www.pythonguis.com/tutorials/pyqt6-first-steps-qt-designer/
+# I couldn't remember how to setup the initial window so I used the tutorial from this site: https://www.pythonguis.com/tutorials/pyqt6-first-steps-qt-designer/
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__() 
         self.userEmail = ""
         self.cart = []
+        self.nextOrder = qf.getMaxOrderNum() + 1
+        print(self.nextOrder)
 
         self.ui = uic.loadUi('mainWindow.ui', self)
 
@@ -46,8 +48,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.ownerViewFrame.hide()
         self.ui.ownerViewFrame.setEnabled(False)
 
-        self.ui.genresFrame.show()
-        self.showGenres()
         self.ui.userViewFrame.show()
         self.ui.userViewFrame.setEnabled(True)
 
@@ -57,13 +57,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.ownerViewFrame.show()
         self.ui.ownerViewFrame.setEnabled(True)
 
-        self.ui.genresFrame.hide()
 
         self.ui.userViewFrame.hide()
         self.ui.userViewFrame.setEnabled(False)
-
-    def showGenres(self):
-        self.ui.genresLbl.setText(qf.getGenres())
 
     def login(self):
         t = qf.findUser(self.ui.emailLogin.text())
@@ -137,11 +133,23 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.qResults.setText(text)
 
     def checkout(self):
-        print("checkout")
+        a = self.ui.addressCheckout.text()
+        b = self.ui.bankCheckout.text()
+
+        dmf.makeBookOrder(self.nextOrder, self.userEmail, a, b, self.cart)
+
+        self.ui.qResults.setText(f"Your order number is: {self.nextOrder}")
+        self.nextOrder += 1
+
+        q = self.ui.inISBN.text()
+
+        max = qf.getQuantity(q)
+        self.ui.quantitySpin.setMaximum(max)
+        self.ui.quantitySpin.setMinimum(1)
 
     def viewOrders(self):
-        print("view orders")
-
+        n = int(self.ui.orderNum.text())
+        self.ui.qResults.setText(qf.viewOrder(n))
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
