@@ -9,6 +9,7 @@ def registerUser(email, fname, lname, address, bank_info):
     conn.commit()
 
 def makeBookOrder(n, user, address, bank_info, books):
+    print(n)
     r = random.randint(1, 100)
     if(r % 2 == 0):
         tracking = "warehouse"
@@ -27,11 +28,47 @@ def placeBookOrder(n, books):
     for b in books:
         c.execute('''INSERT INTO contains VALUES(?, ?, ?);''', (n, b[0], b[1],))
         conn.commit()
+        sellBook(b[0], b[1])
 
+        if(not checkStock(b[0])):
+            print("need more books, ordering 10")
+            purchaseBook(b[0])
+        
+def purchaseBook(isbn):
+    c.execute('''SELECT isbn FROM sells''')
+    r = c.fetchone()
 
-def sellBook(isbn):
-    print("if book in the total_sales then updaate quantity, if not then add")
-    print("reduce quantity in the book table") # made trigger
+    if(r):
+        c.execute('''UPDATE sells SET quantity = quantity + 10 WHERE isbn = ?''', (isbn,))
+        conn.commit()
+
+    else:
+        c.execute('''INSERT INTO sells VALUES(?, ?);''', (isbn, 10,))
+        conn.commit()
+
+    c.execute('''UPDATE Book SET quantity = quantity + 10 WHERE isbn = ?''', (isbn,))
+    conn.commit()
+
+def sellBook(isbn, quantity):
+    c.execute('''SELECT isbn FROM Total_sales''')
+    r = c.fetchone()
+
+    if(r):
+        c.execute('''UPDATE Total_sales SET quantity = quantity + ? WHERE isbn = ?''', (quantity, isbn,))
+        conn.commit()
+
+    else:
+        c.execute('''INSERT INTO Total_sales VALUES(?, ?);''', (isbn, quantity,))
+        conn.commit()
+
+def checkStock(isbn):
+    c.execute('''SELECT quantity FROM Book WHERE isbn = ?''', (isbn,))
+    r = c.fetchone()
+
+    if(r[0] < 10):
+        return False
+    else:
+        return True
 
 '''
 n = 1000

@@ -58,7 +58,6 @@ conn.commit()
 
 c.execute('''CREATE TABLE IF NOT EXISTS sells (
 	isbn CHAR(17),
-	date Date NOT NULL,
 	quantity NUMERIC(2, 0) NOT NULL,
 	PRIMARY KEY (isbn),
 	FOREIGN KEY (isbn) REFERENCES Book (isbn))''')
@@ -104,7 +103,6 @@ conn.commit()
 
 c.execute('''CREATE TABLE IF NOT EXISTS Total_sales (
 	isbn CHAR(17),
-	month NUMERIC(2, 0) NOT NULL,
 	quantity NUMERIC(2, 0) NOT NULL,
 	PRIMARY KEY (isbn),
 	FOREIGN KEY (isbn) REFERENCES Book (isbn))''')

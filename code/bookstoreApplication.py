@@ -1,6 +1,6 @@
 import sys
-from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6 import uic
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import uic
 
 import queryFunctions as qf
 import dmFunctions as dmf
@@ -12,7 +12,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.userEmail = ""
         self.cart = []
         self.nextOrder = qf.getMaxOrderNum() + 1
-        print(self.nextOrder)
 
         self.ui = uic.loadUi('mainWindow.ui', self)
 
@@ -89,7 +88,6 @@ class MainWindow(QtWidgets.QMainWindow):
     def searchISBN(self):
         q = self.ui.inSearch.text()
         self.ui.qResults.setText(qf.bookByISBN(q))
-        print(self.userEmail)
 
     def searchTitle(self):
         q = self.ui.inSearch.text()
@@ -146,6 +144,8 @@ class MainWindow(QtWidgets.QMainWindow):
         max = qf.getQuantity(q)
         self.ui.quantitySpin.setMaximum(max)
         self.ui.quantitySpin.setMinimum(1)
+
+        self.cart = []
 
     def viewOrders(self):
         n = int(self.ui.orderNum.text())

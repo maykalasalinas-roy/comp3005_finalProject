@@ -136,6 +136,17 @@ def loadUser():
     for n in c.fetchall():
         print(f"{n[0]}\t{n[1]}\t{n[2]}\t{n[3]}\t{n[4]}")
 
+def loadSells():
+    c.execute('''SELECT b.isbn, b.quantity FROM Book b''')
+    r = c.fetchall()
+
+    for b in r:
+        c.execute('''INSERT INTO sells VALUES(?, ?);''', (b[0], b[1],))
+        conn.commit()
+    
+    c.execute("SELECT * FROM sells")
+    for n in c.fetchall():
+        print(f"{n[0]}\t{n[1]}")
 
 loadBook()
 loadPublisher()
@@ -144,7 +155,7 @@ loadPhones()
 loadAuthor()
 loadWrote()
 loadUser()
-
+loadSells()
 
 c.close()
 conn.close()

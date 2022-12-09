@@ -106,10 +106,9 @@ def getMaxOrderNum():
     if(r[0]):
         return r[0]
     else:
-        return 1000
+        return 999
 
 def viewOrder(orderNum):
-    print("orders")
     c.execute('''SELECT tracking FROM book_order WHERE order_num = ?''', (orderNum,))
     r = c.fetchone()
 
