@@ -1,3 +1,5 @@
+#This file is for loading the mock data into the database
+
 import sqlite3
 
 conn = sqlite3.connect("bookstore.db")

@@ -1,3 +1,5 @@
+#This file is for creating the database and triggers
+
 import sqlite3
 
 conn = sqlite3.connect("bookstore.db")
@@ -112,6 +114,21 @@ c.execute('''CREATE TRIGGER IF NOT EXISTS reduce_stock
 	BEGIN
 		UPDATE Book SET quantity = quantity - NEW.quantity WHERE isbn = NEW.isbn;
 		UPDATE Total_sales SET quantity = quantity + NEW.quantity WHERE isbn = NEW.isbn;
+	END;''')
+conn.commit()
+
+c.execute('''CREATE TRIGGER IF NOT EXISTS delete_book 
+	BEFORE DELETE ON Book
+	BEGIN
+		DELETE FROM wrote WHERE isbn = OLD.isbn;
+		DELETE FROM genre WHERE isbn = OLD.isbn;
+	END;''')
+conn.commit()
+
+c.execute('''CREATE TRIGGER IF NOT EXISTS refund 
+	AFTER DELETE ON contains
+	BEGIN
+		UPDATE Total_sales SET quantity = quantity - OLD.quantity WHERE isbn = OLD.isbn;
 	END;''')
 conn.commit()
 
