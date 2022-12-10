@@ -16,50 +16,35 @@ def makeBookOrder(n, user, address, bank_info, books):
     else:
         tracking = "in transit"
 
-    r = random.randint(1, 12)
-    date = f"2022-{r}-01"
-
-    c.execute('''INSERT INTO book_order VALUES(?, ?, ?, ?, ?, ?);''', (n, user, tracking, date, address, bank_info,))
+    c.execute('''INSERT INTO book_order VALUES(?, ?, ?, ?, ?);''', (n, user, tracking, address, bank_info,))
     conn.commit()
 
     placeBookOrder(n, books)
 
 def placeBookOrder(n, books):
     for b in books:
+        print(f"order num: {n}, isbn: {b[0]}, q: {b[1]}")
         c.execute('''INSERT INTO contains VALUES(?, ?, ?);''', (n, b[0], b[1],))
         conn.commit()
-        sellBook(b[0], b[1])
 
         if(not checkStock(b[0])):
             print("need more books, ordering 10")
             purchaseBook(b[0])
         
 def purchaseBook(isbn):
-    c.execute('''SELECT isbn FROM sells''')
-    r = c.fetchone()
-
-    if(r):
-        c.execute('''UPDATE sells SET quantity = quantity + 10 WHERE isbn = ?''', (isbn,))
-        conn.commit()
-
-    else:
-        c.execute('''INSERT INTO sells VALUES(?, ?);''', (isbn, 10,))
-        conn.commit()
+    c.execute('''UPDATE sells SET quantity = quantity + 10 WHERE isbn = ?''', (isbn,))
+    conn.commit()
 
     c.execute('''UPDATE Book SET quantity = quantity + 10 WHERE isbn = ?''', (isbn,))
     conn.commit()
 
-def sellBook(isbn, quantity):
-    c.execute('''SELECT isbn FROM Total_sales''')
-    r = c.fetchone()
+def orderBook(isbn, quantity):
+    print(f"ordering {quantity} of book with isbn {isbn}")
+    c.execute('''UPDATE sells SET quantity = quantity + ? WHERE isbn = ?''', (quantity, isbn,))
+    conn.commit()
 
-    if(r):
-        c.execute('''UPDATE Total_sales SET quantity = quantity + ? WHERE isbn = ?''', (quantity, isbn,))
-        conn.commit()
-
-    else:
-        c.execute('''INSERT INTO Total_sales VALUES(?, ?);''', (isbn, quantity,))
-        conn.commit()
+    c.execute('''UPDATE Book SET quantity = quantity + ? WHERE isbn = ?''', (quantity, isbn,))
+    conn.commit()
 
 def checkStock(isbn):
     c.execute('''SELECT quantity FROM Book WHERE isbn = ?''', (isbn,))
@@ -69,6 +54,24 @@ def checkStock(isbn):
         return False
     else:
         return True
+
+def newBook(isbn, pEmail, title, numP, price, pubP, fn, ln, genre):
+    c.execute('''INSERT INTO Book VALUES(?, ?, ?, ?, ?, ?);''', (isbn, pEmail, title, numP, 10, price,))
+    conn.commit()
+
+    c.execute('''INSERT INTO wrote VALUES(?, ?, ?);''', (isbn, fn, ln,))
+    conn.commit()
+
+    c.execute('''INSERT INTO genre VALUES(?, ?);''', (isbn, genre,))
+    conn.commit()
+
+    c.execute('''INSERT INTO sells VALUES(?, ?, ?);''', (isbn, 10, pubP,))
+    conn.commit()
+
+    c.execute('''INSERT INTO Total_sales VALUES(?, ?, ?);''', (isbn, 0, price,))
+    conn.commit()
+
+    
 
 '''
 n = 1000

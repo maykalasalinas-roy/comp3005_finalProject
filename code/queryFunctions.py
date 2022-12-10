@@ -66,7 +66,7 @@ def printBook(book, a, g):
 
     pub = book[0][4] + " " + book[0][5]
 
-    text = "isbn | title | num_pages | sale_price | authors | publisher | genres"
+    text = "\nisbn | title | num_pages | sale_price | authors | publisher | genres"
     text += f"\n{book[0][0]} | {book[0][1]} | {book[0][2]} | {book[0][3]} | {authors} | {pub}  | {genres}"
     return text
 
@@ -78,16 +78,6 @@ def findUser(email):
         return r
     else:
         return 0
-
-def getGenres():
-    c.execute('''SELECT DISTINCT g.genre FROM genre g ORDER BY g.genre ASC''')
-    r = c.fetchall()
-
-    text = ""
-    for g in r:
-        text += f"{g[0]}\n"
-
-    return text
 
 def getTitle(isbn):
     c.execute('''SELECT title FROM Book WHERE isbn = ?''', (isbn,))
@@ -122,30 +112,101 @@ def viewOrder(orderNum):
 
     return text
 
-'''
-print("\nQuery using isbn:")
-bookByISBN("12-345-678-17")
+def salesVsExpenses():
+    c.execute('''SELECT ts.isbn, ts.quantity, ts.sale_price, s.quantity, s.pub_percent FROM Total_sales ts, sells s WHERE ts.isbn = s.isbn''')
+    r = c.fetchall()
 
-print("\nQuery using title:")
-bookByTitle("Great Escape, The")
+    totP = 0.0
+    totE = 0.0
 
-print("\nQuery using author:")
-bookByAuthor("Anjela", "Abramski")
+    text = "isbn \t quantity sold \t sale_price \t total \t quantity bought  pub_percent \t expense \t profit\n"
 
-print("\nQuery using publisher:")
-bookByPublisher("Fran", "Oglesbee")
+    for s in r:
+        total = s[1] * s[2]
+        expense = s[3] * (s[2] - (s[2] * (s[4]/100)))
+        profit = total - expense
 
-print("\nQuery using genre:")
-bookByGenre("Crime")
+        text += f"{s[0]} \t {s[1]:13} \t {s[2]:10} \t {total:.2f} \t {s[3]:15} \t {s[4]:11} \t {expense:.2f} \t {profit:.2f}\n"
+        totP += profit
+        totE += expense
 
-viewBook("12-345-678-18")
-viewBook("12-345-678-75")
-viewBook("12-345-678-56")
+    return printSalesVsExpenses(totP, totE, text)
 
-findUser("cpeartree0@wisc.edu")
+def printSalesVsExpenses(totP, totE, text):
+    t = f"Total Profit: {totP:.2f}, Total Expenses: {totE:.2f}\n"
+    t += text
+    return t
 
-print(getGenres())
+def getSalesPerAuthor():
+    c.execute('''SELECT w.fname, w.lname, ts.quantity FROM Book b, wrote w, Total_sales ts WHERE ts.isbn = b.isbn AND w.isbn = b.isbn GROUP BY w.fname, w.lname''')
+    r = c.fetchall()
 
-print(getTitle("12-345-678-17"))
+    text = "author | total books sold\n"
+    for s in r:
+        text += f"{s[0]} {s[1]} | {s[2]}\n"
 
-viewOrder(1000)'''
+    return text
+
+def getSalesPerGenre():
+    c.execute('''SELECT g.genre, ts.quantity FROM Book b, genre g, Total_sales ts WHERE ts.isbn = b.isbn AND g.isbn = b.isbn GROUP BY g.genre''')
+    r = c.fetchall()
+
+    text = "genre | total books sold\n"
+    for s in r:
+        text += f"{s[0]} | {s[1]}\n"
+
+    return text
+
+def getSalesPerPublisher():
+    c.execute('''SELECT p.fname, p.lname, ts.quantity FROM Book b, Publisher p, Total_sales ts WHERE ts.isbn = b.isbn AND p.email = b.publisher_email GROUP BY p.fname, p.lname''')
+    r = c.fetchall()
+
+    text = "publisher | total books sold\n"
+    for s in r:
+        text += f"{s[0]} {s[1]} | {s[2]}\n"
+
+    return text
+
+def getAuthors():
+    c.execute('''SELECT a.fname, a.lname FROM Author a ORDER BY a.fname, a.lname''')
+    r = c.fetchall()
+    
+    temp = []
+    for a in r:
+        name = f"{a[0]} {a[1]}"
+        temp.append(name)
+
+    return temp
+
+def getPublishers():
+    c.execute('''SELECT DISTINCT p.email FROM Publisher p ORDER BY p.email''')
+    r = c.fetchall()
+
+    temp = []
+    for p in r:
+        pub = p[0]
+        temp.append(pub)
+
+    return temp
+
+def getGenres():
+    c.execute('''SELECT DISTINCT g.genre FROM genre g ORDER BY g.genre''')
+    r = c.fetchall()
+
+    temp = []
+    for g in r:
+        genre = g[0]
+        temp.append(genre)
+
+    return temp
+
+def getISBN():
+    c.execute('''SELECT DISTINCT isbn FROM Book ORDER BY isbn''')
+    r = c.fetchall()
+
+    temp = []
+    for b in r:
+        isbn = b[0]
+        temp.append(isbn)
+
+    return temp
