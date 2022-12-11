@@ -35,7 +35,7 @@
   
   ### GUI: PyQt5 (not part of Python standard library)
   
-  ### Running a python file: 
+  ### Running a python file in the command line: 
   1. python3 filename.py
     1. If you have multiple versions of python
   2. python filename.py
